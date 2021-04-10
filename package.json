@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "Just a simple layer for git",
   "main": "simplegit.js",
+  "bin":{
+    "simplegit":"./simplegit.js"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
