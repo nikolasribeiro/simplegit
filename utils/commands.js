@@ -19,6 +19,7 @@ function executeCommand(command){
 
 
 module.exports = {
+    executeCommand: executeCommand,
     status   : () => { executeCommand('git status') },
     help     : () => {
         console.log(`

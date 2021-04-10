@@ -3,8 +3,8 @@
  * SimpleGit is a simple layer to use git on Linux
  * Author: Nicolas Ribeiro
  */
-const commands = require('./utils/commands');
 const process = require('process');
+const commands = require('./utils/commands');
 
 /*
 Splice method set the start of the list, in this case, just ommit the first 2 elements
@@ -12,7 +12,7 @@ from terminal arguments
 */
 const arguments = process.argv.splice(2);
 
- 
+
 // Checks if user puts arguments
 if(arguments.length !== 0){
     
@@ -116,7 +116,7 @@ if(arguments.length !== 0){
                             process.exit();
                         }else{
                             console.log(`Branch: ${arguments[index+2]} was deleted successfully`);
-                            commands.branch()
+                            commands.branchDelete(arguments[index+2]);
                             process.exit();
                         }
                     }
