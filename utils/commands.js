@@ -19,9 +19,7 @@ function executeCommand(command){
 
 
 module.exports = {
-
     status  : () => { executeCommand('git status') },
-
     help    : () => {
         console.log(`
             ====== Simplegit ======
@@ -32,7 +30,6 @@ module.exports = {
             -s, --status  |--> status, shows the git status of the current repository
         `);
     },
-
     add     : (file) => { 
         if(file !== 'all'){
             executeCommand(`git add ${file}`);
@@ -40,7 +37,6 @@ module.exports = {
             executeCommand(`git add -A`);   
         }
     },
-
     commit  : (message) => { 
         if (message !== 'commit'){
             executeCommand(`git commit -m "${message}"`);
@@ -48,6 +44,6 @@ module.exports = {
             executeCommand('git commit -m "commit"');
         }
     },
-
-    push    : () => { executeCommand('git push'); }
+    push    : () => { executeCommand('git push'); },
+    log     : () => { executeCommand('git log --oneline --decorate --all --graph') }
 }

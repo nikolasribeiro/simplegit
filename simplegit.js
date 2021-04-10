@@ -61,6 +61,10 @@ if(arguments.length !== 0){
                 case (arg.includes('p') ||arg.includes('push')):
                     commands.push('commit');
                     break;
+                
+                case (arg.includes('l') ||arg.includes('log')):
+                    commands.log();
+                    break;
             }
         }
     });
