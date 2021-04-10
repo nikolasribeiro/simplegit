@@ -138,7 +138,7 @@ if(arguments.length !== 0){
                     }
                     commands.merge(arguments[index+1]);
                     break;
-
+ 
                 default:
                     console.log('Command error: -h or --help for more info');
                     break;
