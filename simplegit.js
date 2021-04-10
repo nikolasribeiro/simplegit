@@ -100,6 +100,8 @@ if(arguments.length !== 0){
         }
     });
 
+ 
+    
 }else{
     commands.status();
     console.log('if you want to know the commands, you can use: simplegit -h');
