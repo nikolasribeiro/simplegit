@@ -93,6 +93,15 @@ if(arguments.length !== 0){
                     commands.push();
                     break;
 
+                case (arg.includes('b') ||arg.includes('blame')):
+                    if(arguments[index+1] === undefined){
+                        console.log("You need to add a target file to blame");
+                    }else{
+                        commands.blame(arguments[index+1]);
+                    }
+                    break;
+
+
                 default:
                     console.log('Command error: -h or --help for more info');
                     break;
