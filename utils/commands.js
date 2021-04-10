@@ -69,7 +69,7 @@ module.exports = {
             executeCommand('git commit -m "commit"');
         }
     },
-    push     : () => { executeCommand('git push'); },
+    push     : (branch='') => { branch !== ''? executeCommand(`git push origin ${branch}`) : executeCommand('git push') },
     log      : () => { executeCommand('git log --oneline --decorate --all --graph') },
     checkout : (target) => { executeCommand(`git checkout ${target}`) },
     blame    : (file) => { file !== '' ? executeCommand(`git blame ${file}`) : console.log() },

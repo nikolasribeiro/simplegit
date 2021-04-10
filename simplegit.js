@@ -84,6 +84,12 @@ if(arguments.length !== 0){
                 */
                 
                 case (arg === '-DOITALL' || arg === '--DOITALL'):
+
+                    if (arguments[index+1] === '--set-push-branch'){
+                        console.log('Queres que haga push a una rama especifica');
+                        process.exit();
+                    }
+
                     commands.status();
                     commands.add('all');
                     if(arguments[index+1] === undefined){
@@ -114,7 +120,6 @@ if(arguments.length !== 0){
                             process.exit();
                         }
                     }
-
 
                     if(arguments[index+1] === undefined){
                         console.log("You need to add a name branch!");
