@@ -129,6 +129,15 @@ if(arguments.length !== 0){
                         console.log(`Branch: ${arguments[index+1]} was created successfully!`);
                     }
                     break;
+                
+
+                case (arg === '-m' || arg === '--merge'):
+                    if(arguments[index+1] === undefined){
+                        console.log('You need to add the branch name to merge!');
+                        process.exit();
+                    }
+                    commands.merge(arguments[index+1]);
+                    break;
 
                 default:
                     console.log('Command error: -h or --help for more info');

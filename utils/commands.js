@@ -53,6 +53,10 @@ module.exports = {
                 -B, --branch    |--> Branch, creates a new git branch for work in paralel with main branch.
                                      If you want to delete a branch, you need to add --delete on your command.
                                      Example: $ simplegit -B --delete BRANCH_NAME
+                
+                -m, --merge     |--> Merge, merge all the changes from one branch to another.
+                                     Example: $ simplegit -m BRANCH_NAME 
+                
             .======================================================================================================.
         `);
     }, 
@@ -70,11 +74,12 @@ module.exports = {
             executeCommand('git commit -m "commit"');
         }
     },
-    push     : (branch='') => { branch !== ''? executeCommand(`git push origin ${branch}`) : executeCommand('git push') },
-    log      : () => { executeCommand('git log --oneline --decorate --all --graph') },
-    checkout : (target) => { executeCommand(`git checkout ${target}`) },
-    blame    : (file) => { file !== '' ? executeCommand(`git blame ${file}`) : console.log() },
-    branch   : (name) => { name !== '' ? executeCommand(`git branch ${name}`): console.log()},
-    branchDelete: (name) => { name !== '' ? executeCommand(`git branch -D ${name}`): console.log() }
+    push            : (branch='')   => { branch !== ''? executeCommand(`git push origin ${branch}`) : executeCommand('git push') },
+    log             : ()            => { executeCommand('git log --oneline --decorate --all --graph') },
+    checkout        : (target)      => { executeCommand(`git checkout ${target}`) },
+    blame           : (file)        => { file !== '' ? executeCommand(`git blame ${file}`) : console.log() },
+    branch          : (name)        => { name !== '' ? executeCommand(`git branch ${name}`): console.log()},
+    branchDelete    : (name)        => { name !== '' ? executeCommand(`git branch -D ${name}`): console.log() },
+    merge           : (branch)      => { branch !== '' ? executeCommand(`git merge ${branch}`): console.log() },
 
 }
