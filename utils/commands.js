@@ -36,7 +36,6 @@ module.exports = {
     add     : (file) => { 
         if(file !== 'all'){
             executeCommand(`git add ${file}`);
-            
         }else{
             executeCommand(`git add -A`);   
         }
