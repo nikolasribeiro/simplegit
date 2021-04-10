@@ -19,6 +19,11 @@ if(arguments.length !== 0){
     // Loop over every argument get from terminal
     arguments.forEach((arg, index) => {
         
+        console.log("Esto es arg: ", arg);
+        console.log("Esto es el type: ", typeof arg);
+
+
+
         if(arg.includes('-') || arg.includes('--')){
 
             switch (true) {
@@ -82,7 +87,8 @@ if(arguments.length !== 0){
                     the git status, git add -A, git commit with a
                     custom text if you want it and push
                 */
-                case (arg.includes('DOITALL')):
+                
+                case (arg === '-DOITALL'):
                     commands.status();
                     commands.add('all');
                     if(arguments[index+1] === undefined){
@@ -92,7 +98,7 @@ if(arguments.length !== 0){
                     }
                     commands.push();
                     break;
-
+                
                 case (arg.includes('b') ||arg.includes('blame')):
                     if(arguments[index+1] === undefined){
                         console.log("You need to add a target file to blame");
@@ -100,8 +106,21 @@ if(arguments.length !== 0){
                         commands.blame(arguments[index+1]);
                     }
                     break;
+                
+                case (arg.includes('B') ||arg.includes('branch')):
 
+                    if(arguments[index+1].includes('--delete')){
+                        console.log('You want to delete a branch');
+                        return;
+                    }
 
+                    if(arguments[index+1] === undefined){
+                        console.log("You need to add a name branch!");
+                    }else{
+                        commands.branch(arguments[index+1]);
+                        console.log(`Branch: ${arguments[index+1]} was created successfully!`);
+                    }
+                    break;
                 default:
                     console.log('Command error: -h or --help for more info');
                     break;

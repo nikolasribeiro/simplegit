@@ -68,5 +68,6 @@ module.exports = {
     log      : () => { executeCommand('git log --oneline --decorate --all --graph') },
     checkout : (target) => { executeCommand(`git checkout ${target}`) },
     blame    : (file) => { file !== '' ? executeCommand(`git blame ${file}`) : console.log() },
-    
+    branch   : (name) => { name !== '' ? executeCommand(`git branch ${name}`): console.log()}
+
 }
