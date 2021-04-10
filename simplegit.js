@@ -11,11 +11,6 @@ Splice method set the start of the list, in this case, just ommit the first 2 el
 from terminal arguments
 */
 const arguments = process.argv.splice(2);
-const FLAGS = {
-    '-a': commands.add,
-    '-s': commands.status,
-    '-h': commands.help
-}
 
 
 // Checks if user puts arguments
