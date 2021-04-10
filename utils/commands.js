@@ -46,7 +46,12 @@ module.exports = {
                                         $ simplegit -DOITALL "YOUR COMMIT MESSAGE HERE"
                                      if you dont put a specific commit message, by default, the commit message
                                      will be 'commit'
+                
                 -b, --blame     |--> Blame, shows you who change a file
+                
+                -B, --branch    |--> Branch, creates a new git branch for work in paralel with main branch.
+                                     If you want to delete a branch, you need to add --delete on your command.
+                                     Example: $ simplegit -B --delete BRANCH_NAME
             .======================================================================================================.
         `);
     }, 
@@ -68,6 +73,7 @@ module.exports = {
     log      : () => { executeCommand('git log --oneline --decorate --all --graph') },
     checkout : (target) => { executeCommand(`git checkout ${target}`) },
     blame    : (file) => { file !== '' ? executeCommand(`git blame ${file}`) : console.log() },
-    branch   : (name) => { name !== '' ? executeCommand(`git branch ${name}`): console.log()}
+    branch   : (name) => { name !== '' ? executeCommand(`git branch ${name}`): console.log()},
+    branchDelete: (name) => { name !== '' ? executeCommand(`git branch -D ${name}`): console.log() }
 
 }

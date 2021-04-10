@@ -105,13 +105,20 @@ if(arguments.length !== 0){
                 case (arg === '-B' ||arg === '--branch'):
 
                     if(arguments[index+1] === '--delete'){
-                        console.log('You want to delete a branch');
-                        break;
+                        if (arguments[index+2] === undefined){
+                            console.log("You need to add the branch name for delete!");
+                            process.exit();
+                        }else{
+                            console.log(`Branch: ${arguments[index+2]} was deleted successfully`);
+                            commands.branch()
+                            process.exit();
+                        }
                     }
 
 
                     if(arguments[index+1] === undefined){
                         console.log("You need to add a name branch!");
+                        process.exit();
                     }else{
                         commands.branch(arguments[index+1]);
                         console.log(`Branch: ${arguments[index+1]} was created successfully!`);
