@@ -89,7 +89,7 @@ if(arguments.length !== 0){
                         console.log('Queres que haga push a una rama especifica');
                         process.exit();
                     }
-
+ 
                     commands.status();
                     commands.add('all');
                     if(arguments[index+1] === undefined){
