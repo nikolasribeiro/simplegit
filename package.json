@@ -1,0 +1,19 @@
+{
+  "name": "simplegit",
+  "version": "1.0.0",
+  "description": "Just a simple layer for git",
+  "main": "simplegit.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nikolasribeiro/simplegit.git"
+  },
+  "author": "Nicolas Ribeiro",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nikolasribeiro/simplegit/issues"
+  },
+  "homepage": "https://github.com/nikolasribeiro/simplegit#readme"
+}
