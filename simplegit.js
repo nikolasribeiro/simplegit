@@ -60,6 +60,18 @@ if(arguments.length !== 0){
                 case (arg.includes('l') ||arg.includes('log')):
                     commands.log();
                     break;
+
+                case (arg.includes('Ch') ||arg.includes('checkout')):
+                    if(arguments[index+1] === undefined){
+                        return;
+                    }else{
+                        commands.checkout(arguments[index+1]);
+                    }
+                    break;
+                
+                default:
+                    console.log('Command error: -h or --help for more info');
+                    break;
             }
         }
     });
