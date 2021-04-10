@@ -12,7 +12,7 @@ from terminal arguments
 */
 const arguments = process.argv.splice(2);
 
-
+ 
 // Checks if user puts arguments
 if(arguments.length !== 0){
     
