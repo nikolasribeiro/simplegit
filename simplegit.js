@@ -18,28 +18,23 @@ if(arguments.length !== 0){
     
     // Loop over every argument get from terminal
     arguments.forEach((arg, index) => {
-        
-        console.log("Esto es arg: ", arg);
-        console.log("Esto es el type: ", typeof arg);
-
-
 
         if(arg.includes('-') || arg.includes('--')){
 
             switch (true) {
 
                 // Help command
-                case (arg.includes('h') || arg.includes('help')):
+                case (arg === '-h' || arg === '--help'):
                     commands.help();
                     break;
 
                 // git status command
-                case (arg.includes('s') || arg.includes('status')):
+                case (arg === '-s' || arg === '--status'):
                     commands.status();
                     break;
 
                 // git add command
-                case (arg.includes('a') || arg.includes('add')):
+                case (arg === '-a' || arg === '--add'):
 
                     // checks if the flags with double dash exist
                     if (arguments[index].includes('--all')){
@@ -53,7 +48,7 @@ if(arguments.length !== 0){
                     break;
 
                 // git commit command
-                case (arg.includes('c') ||arg.includes('commit')):
+                case (arg === '-c' ||arg === '--commit'):
                     
                     if(arguments[index+1] === undefined){
                         commands.commit('commit');
@@ -63,17 +58,17 @@ if(arguments.length !== 0){
                     break;
                 
                 // git push command
-                case (arg.includes('p') ||arg.includes('push')):
+                case (arg === '-p' ||arg === '--push'):
                     commands.push('commit');
                     break;
                 
                 // git log command
-                case (arg.includes('l') ||arg.includes('log')):
+                case (arg === '-l' ||arg === '--log'):
                     commands.log();
                     break;
 
                 // git checkout command
-                case (arg.includes('Ch') ||arg.includes('checkout')):
+                case (arg === '-Ch' ||arg === '--checkout'):
 
                     if(arguments[index+1] === undefined){
                         return;
@@ -88,7 +83,7 @@ if(arguments.length !== 0){
                     custom text if you want it and push
                 */
                 
-                case (arg === '-DOITALL'):
+                case (arg === '-DOITALL' || arg === '--DOITALL'):
                     commands.status();
                     commands.add('all');
                     if(arguments[index+1] === undefined){
@@ -98,8 +93,8 @@ if(arguments.length !== 0){
                     }
                     commands.push();
                     break;
-                
-                case (arg.includes('b') ||arg.includes('blame')):
+
+                case (arg === '-b' ||arg === '--blame'):
                     if(arguments[index+1] === undefined){
                         console.log("You need to add a target file to blame");
                     }else{
@@ -107,12 +102,13 @@ if(arguments.length !== 0){
                     }
                     break;
                 
-                case (arg.includes('B') ||arg.includes('branch')):
+                case (arg === '-B' ||arg === '--branch'):
 
-                    if(arguments[index+1].includes('--delete')){
+                    if(arguments[index+1] === '--delete'){
                         console.log('You want to delete a branch');
-                        return;
+                        break;
                     }
+
 
                     if(arguments[index+1] === undefined){
                         console.log("You need to add a name branch!");
@@ -121,6 +117,7 @@ if(arguments.length !== 0){
                         console.log(`Branch: ${arguments[index+1]} was created successfully!`);
                     }
                     break;
+
                 default:
                     console.log('Command error: -h or --help for more info');
                     break;
