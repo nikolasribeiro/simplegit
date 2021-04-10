@@ -23,14 +23,17 @@ if(arguments.length !== 0){
 
             switch (true) {
 
+                // Help command
                 case (arg.includes('h') || arg.includes('help')):
                     commands.help();
                     break;
 
+                // git status command
                 case (arg.includes('s') || arg.includes('status')):
                     commands.status();
                     break;
 
+                // git add command
                 case (arg.includes('a') || arg.includes('add')):
 
                     // checks if the flags with double dash exist
@@ -44,6 +47,7 @@ if(arguments.length !== 0){
                     }
                     break;
 
+                // git commit command
                 case (arg.includes('c') ||arg.includes('commit')):
                     
                     if(arguments[index+1] === undefined){
@@ -53,15 +57,19 @@ if(arguments.length !== 0){
                     }
                     break;
                 
+                // git push command
                 case (arg.includes('p') ||arg.includes('push')):
                     commands.push('commit');
                     break;
                 
+                // git log command
                 case (arg.includes('l') ||arg.includes('log')):
                     commands.log();
                     break;
 
+                // git checkout command
                 case (arg.includes('Ch') ||arg.includes('checkout')):
+
                     if(arguments[index+1] === undefined){
                         return;
                     }else{
@@ -69,6 +77,22 @@ if(arguments.length !== 0){
                     }
                     break;
                 
+                /*
+                    DOITALL is a custom command that made your you
+                    the git status, git add -A, git commit with a
+                    custom text if you want it and push
+                */
+                case (arg.includes('DOITALL')):
+                    commands.status();
+                    commands.add('all');
+                    if(arguments[index+1] === undefined){
+                        commands.commit('commit');
+                    }else{
+                        commands.commit(arguments[index+1]);
+                    }
+                    commands.push();
+                    break;
+
                 default:
                     console.log('Command error: -h or --help for more info');
                     break;
