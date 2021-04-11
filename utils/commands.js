@@ -23,41 +23,36 @@ module.exports = {
     status   : () => { executeCommand('git status') },
     help     : () => {
         console.log(`
-            .============================================= SIMPLEGIT =============================================. 
-                how to use it:          
-                $ simplegit [flags[...]]          
-                FLAGS:                    
-                -h, --help      |--> help, shows the info about how the script works
-
-                -s, --status    |--> status, shows the git status of the current repository
-
-                -a, --add       |--> add, Adds the current changes to commit later, is necessary to use
-                                     --all if you want to add for commit all the changes or --file if 
-                                     you want to add only one file for commit.
-                -c, --commit    |--> commit, Commit all the changes that you previously added
-
-                -p, --push      |--> push, Push all the commits to the remote repository
-
-                -l, --log       |--> Log, shows the history of changes and commits in a nice looking way,
-                                     also you get the commit ID if you want to checkout to a specific commit
-                -Ch,--Checkout  |--> Checkout, move to another branch or previous commit
-
-                -DOITALL        |--> DOITALL, custom command that mades for you git status, git add -A, git commit 
-                                     and git push. If you want a specific commit message, you need to do: 
-                                        $ simplegit -DOITALL "YOUR COMMIT MESSAGE HERE"
-                                     if you dont put a specific commit message, by default, the commit message
-                                     will be 'commit'
-                
-                -b, --blame     |--> Blame, shows you who change a file
-                
-                -B, --branch    |--> Branch, creates a new git branch for work in paralel with main branch.
-                                     If you want to delete a branch, you need to add --delete on your command.
-                                     Example: $ simplegit -B --delete BRANCH_NAME
-                
-                -m, --merge     |--> Merge, merge all the changes from one branch to another.
-                                     Example: $ simplegit -m BRANCH_NAME 
-                
-            .======================================================================================================.
+.============================================= SIMPLEGIT =============================================. 
+    how to use it:          
+    $ simplegit [flags[...]]          
+    FLAGS:                    
+    -h, --help      |--> help, shows the info about how the script works
+    -s, --status    |--> status, shows the git status of the current repository
+    -a, --add       |--> add, Adds the current changes to commit later, is necessary to use
+                         --all if you want to add for commit all the changes or --file if 
+                         you want to add only one file for commit.
+    -c, --commit    |--> commit, Commit all the changes that you previously added
+    -p, --push      |--> push, Push all the commits to the remote repository
+    -l, --log       |--> Log, shows the history of changes and commits in a nice looking way,
+                         also you get the commit ID if you want to checkout to a specific commit
+    -Ch,--Checkout  |--> Checkout, move to another branch or previous commit
+    -DOITALL        |--> DOITALL, custom command that mades for you git status, git add -A, git commit 
+                         and git push. If you want a specific commit message, you need to do: 
+                            $ simplegit -DOITALL "YOUR COMMIT MESSAGE HERE"
+                         if you dont put a specific commit message, by default, the commit message
+                         will be 'commit'
+    
+    -b, --blame     |--> Blame, shows you who change a file
+    
+    -B, --branch    |--> Branch, creates a new git branch for work in paralel with main branch.
+                         If you want to delete a branch, you need to add --delete on your command.
+                         Example: $ simplegit -B --delete BRANCH_NAME
+    
+    -m, --merge     |--> Merge, merge all the changes from one branch to another.
+                         Example: $ simplegit -m BRANCH_NAME 
+    
+.======================================================================================================.
         `);
     }, 
     add      : (file) => { 
